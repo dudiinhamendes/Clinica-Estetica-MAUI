@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="SistemaClinica.Views.LoginPage"
+    BackgroundColor="#FAF7F5"
+    Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="25"
+            VerticalOptions="Center">
+
+            <Border
+                BackgroundColor="White"
+                StrokeThickness="0"
+                Padding="25"
+                StrokeShape="RoundRectangle 25">
+
+                <VerticalStackLayout Spacing="15">
+
+                    <!-- Logo -->
+
+                    <Image
+                        Source="logo.png"
+                        HeightRequest="170"
+                        WidthRequest="170"
+                        HorizontalOptions="Center"/>
+
+                    <!-- Título -->
+
+                    <Label
+                        Text="Seja Bem-vinda!"
+                        FontSize="34"
+                        FontFamily="Georgia"
+                        HorizontalOptions="Center"
+                        TextColor="#4A2419"/>
+                    <Label
+                        Text="Cuidando da sua beleza com excelência."
+                        FontSize="15"
+                        HorizontalOptions="Center"
+                        TextColor="#8B6F63"
+                        Margin="0,0,0,10"/>
+
+                    <!-- E-mail -->
+
+                    <Label
+                        Text="E-mail"
+                        FontSize="12"
+                        FontAttributes="Bold"
+                        TextColor="#6B6B6B"/>
+
+                    <Border
+                        BackgroundColor="#F7F2EF"
+                        Stroke="#C7B0A4"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 15">
+
+                        <Entry
+                            x:Name="EntryEmail"
+                            Placeholder="Digite seu e-mail"
+                            Keyboard="Email"
+                            TextColor="#4A2419"
+                            PlaceholderColor="#A89A94"
+                            BackgroundColor="Transparent"
+                            Margin="15,0"/>
+
+                    </Border>
+
+                    <!-- Senha -->
+
+                    <Label
+                        Text="Senha"
+                        FontSize="12"
+                        FontAttributes="Bold"
+                        TextColor="#6B6B6B"/>
+
+                    <Border
+                        BackgroundColor="#F7F2EF"
+                        Stroke="#C7B0A4"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 15">
+
+                        <Entry
+                            x:Name="EntrySenha"
+                            Placeholder="Digite sua senha"
+                            IsPassword="True"
+                            TextColor="#4A2419"
+                            PlaceholderColor="#A89A94"
+                            BackgroundColor="Transparent"
+                            Margin="15,0"/>
+
+                    </Border>
+
+                    <!-- Erro -->
+
+                    <Label
+                        x:Name="LabelErro"
+                        TextColor="Red"
+                        FontSize="13"
+                        IsVisible="False"
+                        HorizontalOptions="Center"/>
+
+                    <!-- Esqueceu senha -->
+
+                    <Label
+                        Text="Esqueceu a senha?"
+                        FontSize="12"
+                        TextColor="#8B6F63"
+                        HorizontalOptions="Center"
+                        Margin="0,5,0,10">
+
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnEsqueceuSenhaClicked"/>
+                        </Label.GestureRecognizers>
+
+                    </Label>
+
+                    <!-- Botão -->
+
+                    <Button
+                        x:Name="BotaoLogin"
+                        Text="Entrar"
+                        Clicked="OnLoginClicked"
+                        BackgroundColor="#4A2419"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        HeightRequest="55"
+                        CornerRadius="20"/>
+
+                    <!-- Loading -->
+
+                    <ActivityIndicator
+                        x:Name="Carregando"
+                        IsRunning="False"
+                        IsVisible="False"
+                        Color="#4A2419"
+                        HorizontalOptions="Center"/>
+
+                    <!-- Cadastro -->
+                    
+                    <Label
+                        HorizontalOptions="Center"
+                        Margin="0,15,0,0"
+                        FontSize="14">
+
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    Text="Não tem uma conta? "
+                                    TextColor="#777777"/>
+
+                                <Span
+                                    Text="Cadastre-se"
+                                    TextColor="#4A2419"
+                                    FontAttributes="Bold"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCadastreClicked"/>
+                        </Label.GestureRecognizers>
+
+                    </Label>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

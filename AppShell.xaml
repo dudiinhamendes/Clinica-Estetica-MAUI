@@ -1,0 +1,55 @@
+<Shell
+    x:Class="SistemaClinica.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:SistemaClinica.Views"
+    FlyoutBehavior="Disabled">
+
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:LoginPage}"
+        Route="LoginPage"/>
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:CadastroPage}"
+        Route="CadastroPage"/>
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:HomePage}"
+        Route="HomePage"/>
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:MeusHorariosPage}"
+        Route="MeusHorariosPage"/>
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:ServicosPage}"
+        Route="ServicosPage"/>
+
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:AgendamentoPage}"
+        Route="AgendamentoPage"/>
+
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:HomeAdminPage}"
+        Route="HomeAdminPage"/>
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:GerenciarServicoPage}"
+        Route="GerenciarServicoPage"/>
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:GerenciarFuncionarioPage}"
+        Route="GerenciarFuncionarioPage"/>
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:GerenciarAgendamentoPage}"
+        Route="GerenciarAgendamentoPage"/>
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:GerenciarUsuarioPage}"
+        Route="GerenciarUsuarioPage"/>
+
+</Shell>

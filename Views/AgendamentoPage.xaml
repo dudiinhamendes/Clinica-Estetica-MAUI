@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SistemaClinica.Views.AgendamentoPage"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Background>
+        <LinearGradientBrush
+            StartPoint="0,0"
+            EndPoint="1,1">
+
+            <GradientStop
+                Color="#FFFDFC"
+                Offset="0"/>
+
+            <GradientStop
+                Color="#F6ECE7"
+                Offset="0.5"/>
+
+            <GradientStop
+                Color="#EEDDD4"
+                Offset="1"/>
+
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="25"
+            Spacing="20">
+
+            <Grid
+                ColumnDefinitions="*,140"
+                Margin="0,10,0,10">
+
+                <VerticalStackLayout
+                    Grid.Column="0">
+
+                    <Grid
+                        ColumnDefinitions="Auto,*"
+                        ColumnSpacing="15">
+
+                        <Border
+                            WidthRequest="45"
+                            HeightRequest="45"
+                            BackgroundColor="#FFF8F5"
+                            Stroke="#D8C0B2"
+                            StrokeShape="RoundRectangle 22.5"
+                            VerticalOptions="Center">
+
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="OnVoltarClickedAgendamento"/>
+                            </Border.GestureRecognizers>
+
+                            <Image
+                                Source="seta_voltar.png"
+                                HeightRequest="20"
+                                WidthRequest="20"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"/>
+
+                        </Border>
+
+                        <!-- Título -->
+
+                        <Label
+                            Grid.Column="1"
+                            Text="Agendamentos"
+                            FontFamily="Georgia"
+                            FontSize="34"
+                            FontAttributes="Bold"
+                            TextColor="#4A2419"
+                            VerticalOptions="Center"/>
+                    </Grid>
+
+                         <!-- Subtítulo -->
+                    <Label
+                        Text="Agende seu horário"
+                        FontSize="18"
+                        TextColor="#8B6F63"
+                        Margin="60,10,0,0"/>
+
+                </VerticalStackLayout>
+
+                      <!-- Imagem de flor -->
+                <Image
+                    Grid.Column="1"
+                    Source="flor_servico.png"
+                    HeightRequest="130"
+                    Aspect="AspectFit"
+                    HorizontalOptions="End"
+                    VerticalOptions="Start"
+                    Margin="0,-10,-15,0"
+                    Opacity="0.45"/>
+            </Grid>
+
+                       <!-- Serviço -->
+            <Border
+                BackgroundColor="#FFF8F5"
+                Stroke="#B8927E"
+                StrokeShape="RoundRectangle 20"
+                Padding="15,10">
+
+                <VerticalStackLayout
+                    Spacing="12">
+
+                    <HorizontalStackLayout
+                        Spacing="10"
+                        VerticalOptions="Center">
+
+                        <Border
+                            WidthRequest="35"
+                            HeightRequest="35"
+                            BackgroundColor="#F7EEE8"
+                            Stroke="#D8C0B2"
+                            StrokeShape="RoundRectangle 17.5">
+
+                            <Image
+                                Source="servicos.png"
+                                WidthRequest="18"
+                                HeightRequest="18"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"/>
+                        </Border>
+
+                        <Label
+                            Text="Serviço"
+                            FontFamily="Arial"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            TextColor="#4A2419"
+                            VerticalTextAlignment="Center"/>
+                    </HorizontalStackLayout>
+
+                    <Picker
+                        x:Name="PickerServico"
+                        ItemsSource="{Binding Servicos}"
+                        ItemDisplayBinding="{Binding Nome_servico}"
+                        SelectedIndexChanged="PickerServico_SelectedIndexChanged"
+                        Title="Selecione um serviço"
+                        FontSize="13"
+                        TextColor="#8B6F63"/>
+                </VerticalStackLayout>
+
+            </Border>
+
+            <!-- Profissional -->
+
+            <Border
+                BackgroundColor="#FFF8F5"
+                Stroke="#B8927E"
+                StrokeShape="RoundRectangle 20"
+                Padding="15,10">
+
+                <VerticalStackLayout
+                    Spacing="12">
+
+                    <HorizontalStackLayout
+                        Spacing="10"
+                        VerticalOptions="Center">
+
+                        <Border
+                            WidthRequest="35"
+                            HeightRequest="35"
+                            BackgroundColor="#F7EEE8"
+                            Stroke="#D8C0B2"
+                            StrokeShape="RoundRectangle 17.5">
+
+                            <Image
+                                Source="perfil.png"
+                                WidthRequest="18"
+                                HeightRequest="18"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"/>
+                        </Border>
+
+                        <Label
+                            Text="Profissional"
+                            FontFamily="Arial"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            TextColor="#4A2419"
+                            VerticalTextAlignment="Center"/>
+                    </HorizontalStackLayout>
+
+                    <Picker
+                        x:Name="PickerFuncionario"
+                        ItemsSource="{Binding Funcionarios}"
+                        ItemDisplayBinding="{Binding Nome_funcionario}"
+                        IsEnabled="False"/>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <!-- Data -->
+
+            <Border
+                BackgroundColor="#FFF8F5"
+                Stroke="#B8927E"
+                StrokeShape="RoundRectangle 20"
+                Padding="15,10">
+
+                <VerticalStackLayout
+                    Spacing="12">
+
+                    <HorizontalStackLayout
+                        Spacing="10">
+
+                        <Border
+                            WidthRequest="35"
+                            HeightRequest="35"
+                            BackgroundColor="#F7EEE8"
+                            Stroke="#D8C0B2"
+                            StrokeShape="RoundRectangle 17.5">
+
+                            <Image
+                                Source="agenda.png"
+                                WidthRequest="18"
+                                HeightRequest="18"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"/>
+                        </Border>
+
+                        <Label
+                            Text="Data"
+                            FontFamily="Arial"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            TextColor="#4A2419"
+                            VerticalTextAlignment="Center"/>
+                    </HorizontalStackLayout>
+
+
+                    <Label
+                        Text="Escolha a data desejada"
+                        FontSize="13"
+                        TextColor="#8B6F63"/>
+
+                    <Border
+                        BackgroundColor="#FDF8F6"
+                        Stroke="#D8C0B2"
+                        StrokeShape="RoundRectangle 15"
+                        Padding="10">
+
+                        <DatePicker
+                            x:Name="DateAgendamento"
+                            HeightRequest="45"
+                            Format="dd/MM/yyyy"
+                            TextColor="#4A2419"
+                            BackgroundColor="Transparent"
+                            DateSelected="DateAgendamento_DateSelected"/>
+
+                    </Border>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <Border
+                BackgroundColor="#FFF8F5"
+                Stroke="#B8927E"
+                StrokeShape="RoundRectangle 20"
+                Padding="15,10">
+
+                <VerticalStackLayout
+                    Spacing="12">
+
+                    <!-- Ícone e título do horário -->
+
+                    <HorizontalStackLayout
+                        Spacing="10">
+
+                        <Border
+                            WidthRequest="35"
+                            HeightRequest="35"
+                            BackgroundColor="#F7EEE8"
+                            Stroke="#D8C0B2"
+                            StrokeShape="RoundRectangle 17.5">
+
+                            <Image
+                                Source="relogio.png"
+                                WidthRequest="18"
+                                HeightRequest="18"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"/>
+
+                        </Border>
+
+                        <Label
+                            Text="Horários Disponíveis"
+                            FontFamily="Arial"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            TextColor="#4A2419"
+                            VerticalTextAlignment="Center"/>
+
+                    </HorizontalStackLayout>
+
+                    <Label
+                        Text="Escolha o melhor horário para você"
+                        FontSize="13"
+                        TextColor="#8B6F63"/>
+
+                    <!-- Horários -->
+
+                    <FlexLayout
+                        Wrap="Wrap"
+                        JustifyContent="Start">
+
+                        <Border
+                            x:Name="Horario0900"
+                            ClassId="09:00"
+                            Margin="0,0,10,10"
+                            Padding="12,8"
+                            BackgroundColor="#F7EEE8"
+                            Stroke="#D8C0B2"
+                            StrokeShape="RoundRectangle 12">
+
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="HorarioSelecionado"/>
+                            </Border.GestureRecognizers>
+
+                            <Label
+                                Text="09:00"
+                                TextColor="#4A2419"/>
+                        </Border>
+
+                        <Border
+                            x:Name="Horario0930"
+                            ClassId="09:30"
+                            Margin="0,0,10,10"
+                            Padding="12,8"
+                            BackgroundColor="#F7EEE8"
+                            Stroke="#D8C0B2"
+                            StrokeShape="RoundRectangle 12">
+
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="HorarioSelecionado"/>
+                            </Border.GestureRecognizers>
+
+                            <Label
+                                Text="09:30"
+                                TextColor="#4A2419"/>
+                        </Border>
+
+                        <Border
+                            x:Name="Horario1000"
+                            ClassId="10:00"
+                            Margin="0,0,10,10"
+                            Padding="12,8"
+                            BackgroundColor="#4A2419">
+
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12"/>
+                            </Border.StrokeShape>
+
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="HorarioSelecionado"/>
+                            </Border.GestureRecognizers>
+
+                            <Label
+                                Text="10:00"
+                                TextColor="White"/>
+                        </Border>
+
+                    </FlexLayout>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <!-- Erro -->
+
+            <Label
+                x:Name="LabelErro"
+                TextColor="Red"
+                FontSize="13"
+                IsVisible="False"
+                HorizontalOptions="Center"/>
+
+            <!-- Botão de confirmar agendamento -->
+
+            <Button
+                Text="Confirmar Agendamento"
+                BackgroundColor="#4A2419"
+                TextColor="White"
+                CornerRadius="18"
+                HeightRequest="55"
+                FontAttributes="Bold"
+                Clicked="OnAgendarClicked"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

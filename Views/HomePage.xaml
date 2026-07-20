@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="SistemaClinica.Views.HomePage"
+    Shell.NavBarIsVisible="False">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0"
+                             EndPoint="1,1">
+
+            <GradientStop Color="#FFFDFC"
+                          Offset="0.0"/>
+
+            <GradientStop Color="#F6ECE7"
+                          Offset="0.5"/>
+
+            <GradientStop Color="#EEDDD4"
+                          Offset="1.0"/>
+
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="25"
+            Spacing="20">
+
+            <Grid ColumnDefinitions="*,110">
+
+                <VerticalStackLayout
+                    Grid.Column="0"
+                    VerticalOptions="Center">
+
+                    <Label
+                        Text="Olá, Eduarda!"
+                        FontSize="38"
+                        FontAttributes="Bold"
+                        FontFamily="Cambria"
+                        TextColor="#4A2419"/>
+
+                    <Label
+                        Text="Como podemos realçar sua beleza hoje?"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        TextColor="#8B6F63"
+                        Margin="0,5,0,0"/>
+                </VerticalStackLayout>
+
+                <Frame
+                    Grid.Column="1"
+                    WidthRequest="100"
+                    HeightRequest="100"
+                    CornerRadius="50"
+                    Padding="0"
+                    HasShadow="False"
+                    BorderColor="#D8C0B2"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center">
+
+                    <Frame.Shadow>
+                        <Shadow
+                            Brush="#C9AFA2"
+                            Opacity="0.40"
+                            Radius="25"
+                            Offset="0,10"/>
+                    </Frame.Shadow>
+
+                    <Image
+                        Source="home_page.png"
+                        Aspect="AspectFill"/>
+
+                </Frame>
+
+            </Grid>
+
+            <Border
+                BackgroundColor="#EBD8CE"
+                Stroke="#D8C0B2"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 25"
+                Padding="20">
+
+                <Border.Shadow>
+                    <Shadow
+                        Brush="#D8C8C0"
+                        Opacity="0.15"
+                        Radius="10"
+                        Offset="0,4"/>
+                </Border.Shadow>
+
+                <VerticalStackLayout
+                    Spacing="10">
+
+                    <HorizontalStackLayout
+                        Spacing="10"
+                        VerticalOptions="Center">
+
+                        <Border
+                            WidthRequest="42"
+                            HeightRequest="42"
+                            BackgroundColor="#F7EEE8"
+                            Stroke="#D8C0B2"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 21">
+
+                            <Border.Shadow>
+                                <Shadow
+                                    Brush="#D8C0B2"
+                                    Opacity="0.20"
+                                    Radius="6"
+                                    Offset="0,2"/>
+                            </Border.Shadow>
+
+                            <Image
+                                Source="lampada.png"
+                                HeightRequest="20"
+                                WidthRequest="20"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"/>
+
+                        </Border>
+
+                        <Label
+                            Text="Cuidados da Semana"
+                            FontSize="22"
+                            FontFamily="Georgia"
+                            FontAttributes="Bold"
+                            TextColor="#4A2419"
+                            VerticalTextAlignment="Center"/>
+
+                    </HorizontalStackLayout>
+
+                    <Label
+                        Text="A hidratação diária ajuda a manter a pele saudável e luminosa."
+                        FontSize="15"
+                        TextColor="#7A5A4D"
+                        Margin="52,-6,0,0"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border
+                BackgroundColor="#F3E8E4"
+                Stroke="#E5D5CE"
+                StrokeShape="RoundRectangle 20"
+                Padding="18">
+
+                <Grid
+                    ColumnDefinitions="60,*,Auto"
+                    ColumnSpacing="15">
+
+                    <Border
+                        WidthRequest="50"
+                        HeightRequest="50"
+                        BackgroundColor="#FAF4F1"
+                        Stroke="#E5D5CE"
+                        StrokeShape="RoundRectangle 25"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+
+                        <Image
+                            Source="atendimento.png"
+                            HeightRequest="24"
+                            WidthRequest="24"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"/>
+
+                    </Border>
+
+                    <VerticalStackLayout
+                        Grid.Column="1"
+                        Spacing="2"
+                        VerticalOptions="Center">
+
+                        <Label
+                            Text="Meus Horários"
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            TextColor="#4A2419"/>
+
+                        <Label
+                            Text="Limpeza de Pele"
+                            FontSize="14"
+                            TextColor="#7A5A4D"/>
+
+                        <Label
+                            Text="20/06/2026 • 14:30"
+                            FontSize="12"
+                            TextColor="#9A7D70"/>
+
+                    </VerticalStackLayout>
+
+                    <Border
+                        Grid.Column="2"
+                        BackgroundColor="#FFF8F5"
+                        Stroke="#CDAF9E"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 20"
+                        Padding="14,7"
+                        VerticalOptions="Center">
+
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="OnMeusHorariosClicked"/>
+                        </Border.GestureRecognizers>
+
+                        <Label
+                            Text="Ver detalhes →"
+                            FontSize="13"
+                            FontAttributes="Bold"
+                            TextColor="#8B5E4C"/>
+
+                    </Border>
+
+                </Grid>
+
+            </Border>
+
+            <Border
+                BackgroundColor="#EBD8CE"
+                Stroke="#D8C0B2"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 25"
+                Padding="20">
+
+                <Border.Shadow>
+                    <Shadow
+                        Brush="#D8C8C0"
+                        Opacity="0.15"
+                        Radius="10"
+                        Offset="0,4"/>
+                </Border.Shadow>
+
+                <VerticalStackLayout
+                    Spacing="25">
+
+                    <Label
+                        Text="Seu Espaço"
+                        FontSize="24"
+                        FontFamily="Georgia"
+                        FontAttributes="Bold"
+                        TextColor="#4A2419"/>
+                    <!-- PRIMEIRA LINHA -->
+                    <Grid ColumnDefinitions="*,*">
+
+                        <Border
+                            Grid.Column="0"
+                            Margin="0,0,10,0"
+                            BackgroundColor="#F5EBE6"
+                            Stroke="#D8C0B2"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 20"
+                            Padding="15">
+
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="OnServicosClicked"/>
+                            </Border.GestureRecognizers>
+
+
+                            <Border.Shadow>
+                                <Shadow
+                                    Brush="#B89F92"
+                                    Opacity="0.25"
+                                    Radius="12"
+                                    Offset="0,5"/>
+                            </Border.Shadow>
+
+                            <VerticalStackLayout
+                                Spacing="8"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center">
+
+                                <Border
+                                    WidthRequest="55"
+                                    HeightRequest="55"
+                                    BackgroundColor="#FAF4F1"
+                                    Stroke="#D8C0B2"
+                                    StrokeThickness="1"
+                                    StrokeShape="RoundRectangle 27.5"
+                                    HorizontalOptions="Center">
+
+                                    <Image
+                                        Source="servicos.png"
+                                        HeightRequest="24"
+                                        WidthRequest="24"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"/>
+
+                                </Border>
+                                <Label
+                                    Text="Serviços"
+                                    FontSize="18"
+                                    FontAttributes="Italic"
+                                    FontFamily="Georgia"
+                                    TextColor="#4A2419"
+                                    HorizontalTextAlignment="Center"/>
+
+                                <Label
+                                    Text="Veja nossos procedimentos"
+                                    FontSize="12"
+                                    TextColor="#8B6F63"
+                                    HorizontalTextAlignment="Center"/>
+
+                            </VerticalStackLayout>
+
+                        </Border>
+
+                        <Border
+                            Grid.Column="1"
+                            Margin="10,0,0,0"
+                            BackgroundColor="#F5EBE6"
+                            Stroke="#D8C0B2"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 20"
+                            Padding="15">
+
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="OnAgendamentosClicked"/>
+                            </Border.GestureRecognizers>
+
+                            <Border.Shadow>
+                                <Shadow
+                                    Brush="#B89F92"
+                                    Opacity="0.25"
+                                    Radius="12"
+                                    Offset="0,5"/>
+                            </Border.Shadow>
+
+                            <VerticalStackLayout
+                                Spacing="8"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center">
+
+                                <Border
+                                    WidthRequest="55"
+                                    HeightRequest="55"
+                                    BackgroundColor="#FAF4F1"
+                                    Stroke="#D8C0B2"
+                                    StrokeThickness="1"
+                                    StrokeShape="RoundRectangle 27.5"
+                                    HorizontalOptions="Center">
+
+                                    <Image
+                                        Source="agenda.png"
+                                        HeightRequest="24"
+                                        WidthRequest="24"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"/>
+
+                                </Border>
+
+                                <Label
+                                    Text="Agendamentos"
+                                    FontSize="18"
+                                    FontAttributes="Italic"
+                                    TextColor="#4A2419"
+                                    FontFamily="Georgia"
+                                    HorizontalTextAlignment="Center"/>
+
+                                <Label
+                                    Text="Confira seus horários"
+                                    FontSize="12"
+                                    TextColor="#8B6F63"
+                                    HorizontalTextAlignment="Center"/>
+
+                            </VerticalStackLayout>
+
+                        </Border>
+                    </Grid>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

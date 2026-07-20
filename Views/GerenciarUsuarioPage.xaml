@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SistemaClinica.Views.GerenciarUsuarioPage"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Background>
+        <LinearGradientBrush
+            StartPoint="0,0"
+            EndPoint="1,1">
+
+            <GradientStop Color="#5A3125"
+                    Offset="0"/>
+            <GradientStop Color="#6B3D2E"
+                    Offset="1"/>
+
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="25"
+            Spacing="20">
+
+            <Grid ColumnDefinitions="*,140"
+                  Margin="0,10,0,10">
+
+                <VerticalStackLayout
+                    Grid.Column="0">
+
+                    <Grid
+                        ColumnDefinitions="Auto,*"
+                        ColumnSpacing="15">
+
+
+                        <!-- Seta -->
+
+                        <Border
+                            WidthRequest="45"
+                            HeightRequest="45"
+                            BackgroundColor="#FFF8F5"
+                            Stroke="#D8C0B2"
+                            StrokeShape="RoundRectangle 22.5">
+
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="OnVoltarUsuarioClicked"/>
+                            </Border.GestureRecognizers>
+
+                            <Image
+                                Source="seta_voltar.png"
+                                WidthRequest="20"
+                                HeightRequest="20"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"/>
+
+                        </Border>
+
+
+                        <!-- Título -->
+
+                        <Label
+                            Grid.Column="1"
+                            Text="Gerenciar Usuários"
+                            FontFamily="Georgia"
+                            FontSize="30"
+                            FontAttributes="Bold"
+                            TextColor="White"
+                            VerticalTextAlignment="Center"/>
+
+                    </Grid>
+
+                    <!-- Subtítulo -->
+
+                    <Label
+                        Text="Visualize e gerencie os clientes cadastrados"
+                        FontSize="14"
+                        TextColor="#D8C0B2"
+                        Margin="60,10,0,0"/>
+
+                </VerticalStackLayout>
+
+            </Grid>
+
+
+            <!-- Usuário -->
+
+            <Border
+                Margin="0,0,0,15"
+                BackgroundColor="#FFF8F5"
+                Stroke="#B8927E"
+                StrokeShape="RoundRectangle 22"
+                Padding="18">
+
+                <Grid
+                    ColumnDefinitions="90,*"
+                    ColumnSpacing="15">
+
+                    <!-- Logo -->
+
+                    <Border
+                        WidthRequest="80"
+                        HeightRequest="80"
+                        BackgroundColor="White"
+                        Stroke="#D8C0B2"
+                        StrokeShape="RoundRectangle 40"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Start">
+
+                        <Image
+                            Source="usuario.png"
+                            WidthRequest="55"
+                            HeightRequest="55"
+                            Aspect="AspectFit"/>
+
+                    </Border>
+
+                    <VerticalStackLayout
+                        Grid.Column="1"
+                        Spacing="8">
+
+                        <!-- Nome -->
+
+                        <Grid ColumnDefinitions="*,Auto">
+
+                            <Label
+                                Text="Eduarda Mendes"
+                                FontSize="22"
+                                CharacterSpacing="0.5"
+                                FontAttributes="Bold"
+                                TextColor="#4A2419"/>
+
+                            <Border
+                                Grid.Column="1"
+                                BackgroundColor="#F2D6C5"
+                                Stroke="#B8927E"
+                                StrokeShape="RoundRectangle 10"
+                                Padding="10,5">
+
+                                <Label
+                                    Text="Usuário"
+                                    FontSize="12"
+                                    FontAttributes="Bold"
+                                    TextColor="#4A2419"/>
+
+                            </Border>
+
+                        </Grid>
+
+                        <BoxView
+                            HeightRequest="1"
+                            Color="#D8C0B2"
+                            Margin="0,8,0,5"/>
+
+                        <!-- E-mail -->
+
+                        <HorizontalStackLayout
+                            Spacing="8">
+
+                            <Image
+                                Source="email.png"
+                                WidthRequest="16"
+                                HeightRequest="16"/>
+
+                            <Label
+                                Text="Eduarda@gmail.com"
+                                FontSize="15"
+                                TextColor="#7A5A4D"/>
+
+                        </HorizontalStackLayout>
+
+                        <!-- Telefone -->
+
+                        <VerticalStackLayout
+                            Spacing="5">
+
+                            <HorizontalStackLayout
+                                Spacing="8">
+
+                                <Image
+                                    Source="telefone.png"
+                                    WidthRequest="16"
+                                    HeightRequest="16"/>
+
+                                <Label
+                                    Text="(51) 928341199"
+                                    FontSize="15"
+                                    TextColor="#7A5A4D"/>
+
+                            </HorizontalStackLayout>
+
+
+                        </VerticalStackLayout>
+
+                        <!-- Botões de editar e excluir -->
+
+                        <HorizontalStackLayout
+                            HorizontalOptions="End"
+                            Spacing="10"
+                            Margin="0,8,0,0">
+
+                            <Border
+                                BackgroundColor="#F7EEE8"
+                                Stroke="#B8927E"
+                                StrokeShape="RoundRectangle 12"
+                                Padding="12,8">
+
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Tapped="OnEditarUsuarioClicked"/>
+                                </Border.GestureRecognizers>
+
+                                <HorizontalStackLayout
+                                    Spacing="6">
+
+                                    <Image
+                                        Source="editar.png"
+                                        WidthRequest="16"
+                                        HeightRequest="16"/>
+
+                                    <Label
+                                        Text="Editar"
+                                        FontAttributes="Bold"
+                                        TextColor="#4A2419"/>
+
+                                </HorizontalStackLayout>
+
+                            </Border>
+
+                            <Border
+                                BackgroundColor="#FDEAEA"
+                                Stroke="#D89A9A"
+                                StrokeShape="RoundRectangle 12"
+                                Padding="12,8">
+
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Tapped="OnCancelarUsuarioClicked"/>
+                                </Border.GestureRecognizers>
+
+                                <HorizontalStackLayout
+                                    Spacing="6">
+
+                                    <Image
+                                        Source="cancelar.png"
+                                        WidthRequest="16"
+                                        HeightRequest="16"/>
+
+                                    <Label
+                                        Text="Excluir"
+                                        FontAttributes="Bold"
+                                        TextColor="#A55A5A"/>
+
+                                </HorizontalStackLayout>
+
+                            </Border>
+
+                        </HorizontalStackLayout>
+
+                    </VerticalStackLayout>
+
+                </Grid>
+
+            </Border>
+
+            <!-- Usuário -->
+
+            <Border
+                Margin="0,0,0,15"
+                BackgroundColor="#FFF8F5"
+                Stroke="#B8927E"
+                StrokeShape="RoundRectangle 22"
+                Padding="18">
+
+                <Grid
+                    ColumnDefinitions="90,*"
+                    ColumnSpacing="15">
+
+                    <!-- Logo -->
+
+                    <Border
+                        WidthRequest="80"
+                        HeightRequest="80"
+                        BackgroundColor="White"
+                        Stroke="#D8C0B2"
+                        StrokeShape="RoundRectangle 40"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Start">
+
+                        <Image
+                            Source="usuario.png"
+                            WidthRequest="55"
+                            HeightRequest="55"
+                            Aspect="AspectFit"/>
+
+                    </Border>
+
+                    <VerticalStackLayout
+                        Grid.Column="1"
+                        Spacing="8">
+
+                        <!-- Nome -->
+
+                        <Grid ColumnDefinitions="*,Auto">
+
+                            <Label
+                                Text="Bianca Ferreira"
+                                FontSize="22"
+                                CharacterSpacing="0.5"
+                                FontAttributes="Bold"
+                                TextColor="#4A2419"/>
+
+
+                            <Border
+                                Grid.Column="1"
+                                BackgroundColor="#F2D6C5"
+                                Stroke="#B8927E"
+                                StrokeShape="RoundRectangle 10"
+                                Padding="10,5">
+
+                                <Label
+                                    Text="Usuário"
+                                    FontSize="12"
+                                    FontAttributes="Bold"
+                                    TextColor="#4A2419"/>
+
+                            </Border>
+
+                        </Grid>
+
+                        <BoxView
+                            HeightRequest="1"
+                            Color="#D8C0B2"
+                            Margin="0,8,0,5"/>
+
+
+                        <!-- E-mail -->
+
+                        <HorizontalStackLayout
+                            Spacing="8">
+
+                            <Image
+                                Source="email.png"
+                                WidthRequest="16"
+                                HeightRequest="16"/>
+
+                            <Label
+                                Text="Bianca@gmail.com"
+                                FontSize="15"
+                                TextColor="#7A5A4D"/>
+
+                        </HorizontalStackLayout>
+
+
+                        <!-- Telefone -->
+
+                        <VerticalStackLayout
+                            Spacing="5">
+
+                            <HorizontalStackLayout
+                                Spacing="8">
+
+                                <Image
+                                    Source="telefone.png"
+                                    WidthRequest="16"
+                                    HeightRequest="16"/>
+
+                                <Label
+                                    Text="(51) 988251399"
+                                    FontSize="15"
+                                    TextColor="#7A5A4D"/>
+
+                            </HorizontalStackLayout>
+
+                        </VerticalStackLayout>
+
+                        <!-- Botões de editar e excluir -->
+
+                        <HorizontalStackLayout
+                            HorizontalOptions="End"
+                            Spacing="10"
+                            Margin="0,8,0,0">
+
+                            <Border
+                                BackgroundColor="#F7EEE8"
+                                Stroke="#B8927E"
+                                StrokeShape="RoundRectangle 12"
+                                Padding="12,8">
+
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Tapped="OnEditarUsuarioClicked"/>
+                                </Border.GestureRecognizers>
+
+                                <HorizontalStackLayout
+                                    Spacing="6">
+
+                                    <Image
+                                        Source="editar.png"
+                                        WidthRequest="16"
+                                        HeightRequest="16"/>
+
+                                    <Label
+                                        Text="Editar"
+                                        FontAttributes="Bold"
+                                        TextColor="#4A2419"/>
+
+                                </HorizontalStackLayout>
+
+                            </Border>
+
+                            <Border
+                                BackgroundColor="#FDEAEA"
+                                Stroke="#D89A9A"
+                                StrokeShape="RoundRectangle 12"
+                                Padding="12,8">
+
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Tapped="OnCancelarUsuarioClicked"/>
+                                </Border.GestureRecognizers>
+
+                                <HorizontalStackLayout
+                                    Spacing="6">
+
+                                    <Image
+                                        Source="cancelar.png"
+                                        WidthRequest="16"
+                                        HeightRequest="16"/>
+
+                                    <Label
+                                        Text="Excluir"
+                                        FontAttributes="Bold"
+                                        TextColor="#A55A5A"/>
+
+                                </HorizontalStackLayout>
+
+                            </Border>
+
+                        </HorizontalStackLayout>
+
+                    </VerticalStackLayout>
+
+                </Grid>
+
+            </Border>
+
+            <!-- Usuário -->
+
+            <Border
+                Margin="0,0,0,15"
+                BackgroundColor="#FFF8F5"
+                Stroke="#B8927E"
+                StrokeShape="RoundRectangle 22"
+                Padding="18">
+
+                <Grid
+                    ColumnDefinitions="90,*"
+                    ColumnSpacing="15">
+
+                    <!-- Logo -->
+
+                    <Border
+                        WidthRequest="80"
+                        HeightRequest="80"
+                        BackgroundColor="White"
+                        Stroke="#D8C0B2"
+                        StrokeShape="RoundRectangle 40"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Start">
+
+                        <Image
+                            Source="usuario.png"
+                            WidthRequest="55"
+                            HeightRequest="55"
+                            Aspect="AspectFit"/>
+
+                    </Border>
+
+                    <VerticalStackLayout
+                        Grid.Column="1"
+                        Spacing="8">
+
+                        <!-- Nome -->
+
+                        <Grid ColumnDefinitions="*,Auto">
+
+                            <Label
+                                Text="Gabriela Souza"
+                                FontSize="22"
+                                CharacterSpacing="0.5"
+                                FontAttributes="Bold"
+                                TextColor="#4A2419"/>
+
+                            <Border
+                                Grid.Column="1"
+                                BackgroundColor="#F2D6C5"
+                                Stroke="#B8927E"
+                                StrokeShape="RoundRectangle 10"
+                                Padding="10,5">
+
+                                <Label
+                                    Text="Usuário"
+                                    FontSize="12"
+                                    FontAttributes="Bold"
+                                    TextColor="#4A2419"/>
+
+                            </Border>
+
+                        </Grid>
+
+                        <BoxView
+                            HeightRequest="1"
+                            Color="#D8C0B2"
+                            Margin="0,8,0,5"/>
+
+                        <!-- E-mail -->
+
+                        <HorizontalStackLayout
+                            Spacing="8">
+
+                            <Image
+                                Source="email.png"
+                                WidthRequest="16"
+                                HeightRequest="16"/>
+
+                            <Label
+                                Text="Gabriela@gmail.com"
+                                FontSize="15"
+                                TextColor="#7A5A4D"/>
+
+                        </HorizontalStackLayout>
+
+                        <!-- Telefone -->
+
+                        <VerticalStackLayout
+                            Spacing="5">
+
+                            <HorizontalStackLayout
+                                Spacing="8">
+
+                                <Image
+                                    Source="telefone.png"
+                                    WidthRequest="16"
+                                    HeightRequest="16"/>
+
+                                <Label
+                                    Text="(51) 821331496"
+                                    FontSize="15"
+                                    TextColor="#7A5A4D"/>
+
+                            </HorizontalStackLayout>
+
+                        </VerticalStackLayout>
+
+                        <!-- Botões de editar e excluir -->
+
+                        <HorizontalStackLayout
+                            HorizontalOptions="End"
+                            Spacing="10"
+                            Margin="0,8,0,0">
+
+                            <Border
+                                BackgroundColor="#F7EEE8"
+                                Stroke="#B8927E"
+                                StrokeShape="RoundRectangle 12"
+                                Padding="12,8">
+
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Tapped="OnEditarUsuarioClicked"/>
+                                </Border.GestureRecognizers>
+
+                                <HorizontalStackLayout
+                                    Spacing="6">
+
+                                    <Image
+                                        Source="editar.png"
+                                        WidthRequest="16"
+                                        HeightRequest="16"/>
+
+                                    <Label
+                                        Text="Editar"
+                                        FontAttributes="Bold"
+                                        TextColor="#4A2419"/>
+
+                                </HorizontalStackLayout>
+
+                            </Border>
+
+                            <Border
+                                BackgroundColor="#FDEAEA"
+                                Stroke="#D89A9A"
+                                StrokeShape="RoundRectangle 12"
+                                Padding="12,8">
+
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Tapped="OnCancelarUsuarioClicked"/>
+                                </Border.GestureRecognizers>
+
+                                <HorizontalStackLayout
+                                    Spacing="6">
+
+                                    <Image
+                                        Source="cancelar.png"
+                                        WidthRequest="16"
+                                        HeightRequest="16"/>
+
+                                    <Label
+                                        Text="Excluir"
+                                        FontAttributes="Bold"
+                                        TextColor="#A55A5A"/>
+
+                                </HorizontalStackLayout>
+
+                            </Border>
+
+                        </HorizontalStackLayout>
+
+                    </VerticalStackLayout>
+
+                </Grid>
+
+            </Border>
+
+            <!-- Usuário -->
+
+            <Border
+                Margin="0,0,0,15"
+                BackgroundColor="#FFF8F5"
+                Stroke="#B8927E"
+                StrokeShape="RoundRectangle 22"
+                Padding="18">
+
+                <Grid
+                    ColumnDefinitions="90,*"
+                    ColumnSpacing="15">
+
+                    <!-- Logo -->
+
+                    <Border
+                        WidthRequest="80"
+                        HeightRequest="80"
+                        BackgroundColor="White"
+                        Stroke="#D8C0B2"
+                        StrokeShape="RoundRectangle 40"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Start">
+
+                        <Image
+                            Source="usuario.png"
+                            WidthRequest="55"
+                            HeightRequest="55"
+                            Aspect="AspectFit"/>
+
+                    </Border>
+
+                    <VerticalStackLayout
+                        Grid.Column="1"
+                        Spacing="8">
+
+                        <!-- Nome -->
+
+                        <Grid ColumnDefinitions="*,Auto">
+
+                            <Label
+                                Text="Paula Fernandes"
+                                FontSize="22"
+                                CharacterSpacing="0.5"
+                                FontAttributes="Bold"
+                                TextColor="#4A2419"/>
+
+
+                            <Border
+                                Grid.Column="1"
+                                BackgroundColor="#F2D6C5"
+                                Stroke="#B8927E"
+                                StrokeShape="RoundRectangle 10"
+                                Padding="10,5">
+
+                                <Label
+                                    Text="Usuário"
+                                    FontSize="12"
+                                    FontAttributes="Bold"
+                                    TextColor="#4A2419"/>
+
+                            </Border>
+
+                        </Grid>
+
+                        <BoxView
+                            HeightRequest="1"
+                            Color="#D8C0B2"
+                            Margin="0,8,0,5"/>
+
+                        <!-- E-mail -->
+
+                        <HorizontalStackLayout
+                            Spacing="8">
+
+                            <Image
+                                Source="email.png"
+                                WidthRequest="16"
+                                HeightRequest="16"/>
+
+                            <Label
+                                Text="Paula@gmail.com"
+                                FontSize="15"
+                                TextColor="#7A5A4D"/>
+
+                        </HorizontalStackLayout>
+
+                        <!-- Telefone -->
+
+                        <VerticalStackLayout
+                            Spacing="5">
+
+                            <HorizontalStackLayout
+                                Spacing="8">
+
+                                <Image
+                                    Source="telefone.png"
+                                    WidthRequest="16"
+                                    HeightRequest="16"/>
+
+                                <Label
+                                    Text="(51) 9286523490"
+                                    FontSize="15"
+                                    TextColor="#7A5A4D"/>
+
+                            </HorizontalStackLayout>
+
+
+                        </VerticalStackLayout>
+
+                        <!-- Botões de editar e excluir -->
+
+                        <HorizontalStackLayout
+                            HorizontalOptions="End"
+                            Spacing="10"
+                            Margin="0,8,0,0">
+
+                            <Border
+                                BackgroundColor="#F7EEE8"
+                                Stroke="#B8927E"
+                                StrokeShape="RoundRectangle 12"
+                                Padding="12,8">
+
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Tapped="OnEditarUsuarioClicked"/>
+                                </Border.GestureRecognizers>
+
+                                <HorizontalStackLayout
+                                    Spacing="6">
+
+                                    <Image
+                                        Source="editar.png"
+                                        WidthRequest="16"
+                                        HeightRequest="16"/>
+
+                                    <Label
+                                        Text="Editar"
+                                        FontAttributes="Bold"
+                                        TextColor="#4A2419"/>
+
+                                </HorizontalStackLayout>
+
+                            </Border>
+
+                            <Border
+                                BackgroundColor="#FDEAEA"
+                                Stroke="#D89A9A"
+                                StrokeShape="RoundRectangle 12"
+                                Padding="12,8">
+
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Tapped="OnCancelarUsuarioClicked"/>
+                                </Border.GestureRecognizers>
+
+                                <HorizontalStackLayout
+                                    Spacing="6">
+
+                                    <Image
+                                        Source="cancelar.png"
+                                        WidthRequest="16"
+                                        HeightRequest="16"/>
+
+                                    <Label
+                                        Text="Excluir"
+                                        FontAttributes="Bold"
+                                        TextColor="#A55A5A"/>
+
+                                </HorizontalStackLayout>
+
+                            </Border>
+
+                        </HorizontalStackLayout>
+
+                    </VerticalStackLayout>
+
+                </Grid>
+
+            </Border>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

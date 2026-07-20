@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="SistemaClinica.Views.CadastroPage"
+    BackgroundColor="#FAF7F5"
+    Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="25"
+            VerticalOptions="Center">
+
+            <Border
+                BackgroundColor="White"
+                StrokeThickness="0"
+                Padding="25"
+                StrokeShape="RoundRectangle 25">
+
+                <VerticalStackLayout Spacing="15">
+
+                          <!-- Logo -->
+                    <Image
+                        Source="logo.png"
+                        HeightRequest="170"
+                        WidthRequest="170"
+                        HorizontalOptions="Center"/>
+
+                         <!-- Título -->
+                    <Label
+                        Text="Criar Conta"
+                        FontSize="34"
+                        FontFamily="Georgia"
+                        HorizontalOptions="Center"
+                        TextColor="#4A2419"/>
+
+                       <!-- Subtítulo--> 
+
+                    <Label
+                        Text="Preencha seus dados para começar sua experiência BellaFormaDigital."
+                        FontSize="15"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        TextColor="#8B6F63"
+                        Margin="0,0,0,10"/>
+
+                    <!-- Nome completo -->
+                   
+                    <Label
+                        Text="Nome Completo"
+                        FontSize="12"
+                        FontAttributes="Bold"
+                        TextColor="#6B6B6B"/>
+
+                    <Border
+                        BackgroundColor="#F7F2EF"
+                        Stroke="#C7B0A4"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 15">
+
+                        <Entry
+                            x:Name="EntryNomeCompleto"
+                            Placeholder="Digite seu nome completo"
+                            TextColor="#4A2419"
+                            PlaceholderColor="#A89A94"
+                            BackgroundColor="Transparent"
+                            Margin="15,0"/>
+
+                    </Border>
+
+                    <!-- CPF -->
+                   
+                    <Label
+                        Text="CPF"
+                        FontSize="12"
+                        FontAttributes="Bold"
+                        TextColor="#6B6B6B"/>
+
+                    <Border
+                        BackgroundColor="#F7F2EF"
+                        Stroke="#C7B0A4"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 15">
+
+                        <Entry
+                            x:Name="EntryCPF"
+                            Placeholder="Digite seu CPF"
+                            TextColor="#4A2419"
+                            PlaceholderColor="#A89A94"
+                            BackgroundColor="Transparent"
+                            Margin="15,0"/>
+                    </Border>
+
+                    <!-- Telefone -->
+
+                    <Label
+                        Text="Telefone"
+                        FontSize="12"
+                        FontAttributes="Bold"
+                        TextColor="#6B6B6B"/>
+
+                    <Border
+                        BackgroundColor="#F7F2EF"
+                        Stroke="#C7B0A4"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 15">
+
+                        <Entry
+                            x:Name="EntryTelefone"
+                            Placeholder="(51) 99999-9999"
+                            TextColor="#4A2419"
+                            Keyboard="Telephone"
+                            PlaceholderColor="#A89A94"
+                            BackgroundColor="Transparent"
+                            Margin="15,0"/>
+
+                    </Border>
+
+                     <!-- E-mail -->
+                    
+                    <Label
+                        Text="E-mail"
+                        FontSize="12"
+                        FontAttributes="Bold"
+                        TextColor="#6B6B6B"/>
+
+                    <Border
+                        BackgroundColor="#F7F2EF"
+                        Stroke="#C7B0A4"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 15">
+
+                        <Entry
+                            x:Name="EntryEmail"
+                            Placeholder="Digite seu E-mail"
+                            TextColor="#4A2419"
+                            Keyboard="Email"
+                            PlaceholderColor="#A89A94"
+                            BackgroundColor="Transparent"
+                            Margin="15,0"/>
+
+                    </Border>
+
+                             <!-- Senha -->
+                    
+                    <Label
+                        Text="Senha"
+                        FontSize="12"
+                        FontAttributes="Bold"
+                        TextColor="#6B6B6B"/>
+
+                    <Border
+                        BackgroundColor="#F7F2EF"
+                        Stroke="#C7B0A4"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 15">
+
+                        <Grid ColumnDefinitions="*, Auto">
+                            <Entry
+                                x:Name="EntrySenha"
+                                Grid.Column="0"
+                                Placeholder="Digite sua senha"
+                                IsPassword="True"
+                                TextColor="#4A2419"
+                                PlaceholderColor="#A89A94"
+                                BackgroundColor="Transparent"
+                                Margin="15,0,0,0"/>
+                        </Grid>
+
+                    </Border>
+
+                    <!-- Confirmar senha -->
+
+                    <Label
+                        Text="Confirmar senha"
+                        FontSize="12"
+                        FontAttributes="Bold"
+                        TextColor="#6B6B6B"/>
+
+                    <Border
+                        BackgroundColor="#F7F2EF"
+                        Stroke="#C7B0A4"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 15">
+
+                        <Grid ColumnDefinitions="*, Auto">
+                            <Entry
+                                x:Name="EntryConfirmarSenha"
+                                Grid.Column="0"
+                                Placeholder="Confirme sua senha"
+                                IsPassword="True"
+                                TextColor="#4A2419"
+                                PlaceholderColor="#A89A94"
+                                BackgroundColor="Transparent"
+                                Margin="15,0,0,0"/>
+                        </Grid>
+
+                    </Border>
+
+                    <!-- Erro -->
+
+                    <Label
+                        x:Name="LabelErro"
+                        TextColor="Red"
+                        FontSize="13"
+                        IsVisible="False"
+                        HorizontalOptions="Center"/>
+
+                         <!-- Botão de cadastrar -->
+
+                    <Button
+                        x:Name="BotaoCadastro"
+                        Text="Cadastrar"
+                        Clicked="OnCadastroClicked"
+                        BackgroundColor="#4A2419"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        HeightRequest="55"
+                        CornerRadius="20"/>
+
+                    <!-- Voltar para o login -->
+                    
+                    <Label
+                        HorizontalOptions="Center"
+                        Margin="0,15,0,0"
+                        FontSize="14">
+
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    Text="Já tem uma conta? "
+                                    TextColor="#777777"/>
+
+                                <Span
+                                    Text="Fazer login"
+                                    TextColor="#4A2419"
+                                    FontAttributes="Bold"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnLoginClicked"/>
+                        </Label.GestureRecognizers>
+
+                    </Label>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
